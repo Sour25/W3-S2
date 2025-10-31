@@ -3,18 +3,15 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatelessWidget {
   final String text;
   final Color? color;
-  final Gradient? gradient;
 
-  const CustomCard({super.key, required this.text, this.color, this.gradient});
+  const CustomCard({super.key, required this.text, this.color});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       height: 80,
       decoration: BoxDecoration(
-        color: gradient == null ? color ?? Colors.blue : null,
-        gradient: gradient,
+        color: color ?? Colors.blue,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(
@@ -44,12 +41,7 @@ void main() {
               const SizedBox(height: 20),
               CustomCard(text: 'DART', color: Colors.blue[300]),
               const SizedBox(height: 20),
-              CustomCard(
-                text: 'FLUTTER',
-                gradient: LinearGradient(
-                  colors: [Colors.blue[300]!, Colors.blue[600]!],
-                ),
-              ),
+              CustomCard(text: 'FLUTTER', color: Colors.blue[600]),
             ],
           ),
         ),
